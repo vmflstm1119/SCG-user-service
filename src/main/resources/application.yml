@@ -16,6 +16,12 @@ spring:
     username: WINGSENT5
     password: WINGS_4172
 
+  cloud:
+    bus:
+      destination: test_topic
+  kafka:
+    bootstrap-servers: http://localhost:9092
+
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
@@ -32,5 +38,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh, health, beans
+        include: refresh, health, beans, busrefresh
+
+
 
